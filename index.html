@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="form-container">
+            <div class="logo">
+                <img src="logo.png" alt="Logotipo">
+            </div>
+
+            <form id="meuFormulario" onsubmit="mostrarMensagem(event)" action="https://formsubmit.co/phzpro@outlook.com" method="POST">
+    
+                <h2 class="">Formulário de Agendamento</h2>
+
+                <!--Labels para preenchimento dos dados individuais-->
+
+                <label for="nome">Nome completo:</label>
+                <input type="text" name="nome" id="nome" placeholder="ex: Luiz Henrique Silva" required>
+        
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" id="idade" placeholder="ex: 20" min="5">
+
+                <label for="sexo">Sexo:</label>
+                <select name="sexo" id="sexo" required>
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+
+                <label for="cell">Celular do responsável:</label>
+                <input type="tel" name="tel" id="tel" placeholder="ex: (22) 99999-9999 " required>
+                
+                
+                <br>
+                <button type="submit" onclick="mostrarMensagem()">Enviar</button>
+                <p id="mensagem">Formulário enviado com sucesso!</p>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function mostrarMensagem(event) {
+            // Impede o envio imediato do formulário
+            event.preventDefault();
+            
+            // Exibe a mensagem
+            document.getElementById('mensagem').style.display = 'block';
+
+            // Simula o envio do formulário após mostrar a mensagem
+            setTimeout(function() {
+                document.getElementById('meuFormulario').submit();  // Envia o formulário após 1 segundo
+            }, 1000);  // Tempo de espera (1 segundo)
+        }
+    </script>
+</body>
+</html>
